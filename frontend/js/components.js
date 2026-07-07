@@ -1,0 +1,83 @@
+// Injects a consistent header (with nav, language toggle, cart button) and
+// footer (with Telegram/Instagram links) into every page.
+// Usage: <div id="site-header"></div> ... <div id="site-footer"></div>
+// then include this script — it fills them in and highlights the active nav link.
+
+const SOCIAL_LINKS = {
+  telegram: "https://t.me/velira_uz",
+  instagram: "https://instagram.com/velira.uz",
+  phone: "+998900000000",
+  email: "hello@velira.uz",
+};
+
+function renderHeader(activePage) {
+  const el = document.getElementById("site-header");
+  if (!el) return;
+  el.innerHTML = `
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><span class="dot"></span>Velira</a>
+      <nav class="main-nav">
+        <a href="index.html" data-i="navHome" class="${activePage === "home" ? "active" : ""}">Bosh sahifa</a>
+        <a href="shop.html" data-i="navShop" class="${activePage === "shop" ? "active" : ""}">Mahsulotlar</a>
+        <a href="about.html" data-i="navAbout" class="${activePage === "about" ? "active" : ""}">Biz haqimizda</a>
+        <a href="contact.html" data-i="navContact" class="${activePage === "contact" ? "active" : ""}">Aloqa</a>
+      </nav>
+      <div class="header-right">
+        <div class="lang-toggle">
+          <button class="active" data-lang="uz">UZ</button>
+          <button data-lang="ru">RU</button>
+        </div>
+        <button class="cart-btn" id="openCartBtn">
+          🛒 <span data-i="cartBtn">Savat</span>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>`;
+}
+
+function renderFooter() {
+  const el = document.getElementById("site-footer");
+  if (!el) return;
+  el.innerHTML = `
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="index.html"><span class="dot" style="background:var(--mint)"></span>Velira</a>
+        <p data-i="footAbout">Konsentrlangan kir yuvish varaqlari zamonaviy uy uchun. O'zbekistonda rasmiy distribyutor.</p>
+        <div class="social-row">
+          <a class="social-btn" href="${SOCIAL_LINKS.telegram}" target="_blank" rel="noopener" aria-label="Telegram">✈️</a>
+          <a class="social-btn" href="${SOCIAL_LINKS.instagram}" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+        </div>
+      </div>
+      <div>
+        <h4 data-i="footNav1">Do'kon</h4>
+        <ul>
+          <li><a href="shop.html" data-i="fL1">Ocean</a></li>
+          <li><a href="shop.html" data-i="fL2">Wild Lavender</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i="footNav2">Kompaniya</h4>
+        <ul>
+          <li><a href="about.html" data-i="fL3">Biz haqimizda</a></li>
+          <li><a href="contact.html" data-i="fL4">Aloqa</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i="footNav3">Aloqa</h4>
+        <ul>
+          <li><a href="mailto:${SOCIAL_LINKS.email}">${SOCIAL_LINKS.email}</a></li>
+          <li><a href="tel:${SOCIAL_LINKS.phone}">${SOCIAL_LINKS.phone}</a></li>
+          <li><a href="${SOCIAL_LINKS.telegram}" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="${SOCIAL_LINKS.instagram}" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom-row">
+      <span>© 2026 Velira.uz</span>
+      <span data-i="footRights">Barcha huquqlar himoyalangan</span>
+    </div>
+  </footer>`;
+}
