@@ -144,9 +144,14 @@
     statusEl.className = 'form-status';
     try{
       const templateParams = {
-        from_name: form.name.value,
+        type: "Yangi xabar (Aloqa formasi)",
+        name: form.name.value,
         contact: form.contact.value,
+        phone: "—",
+        address: "—",
         message: form.message.value,
+        order_items: "—",
+        order_total: "—",
         reply_to: form.contact.value,
       };
       await emailjs.send('service_rdyv22j', 'template_48si1yf', templateParams);
