@@ -187,13 +187,14 @@ async function submitOrder(e) {
       .join("\n");
 
     const templateParams = {
-      from_name: payload.name,
+      type: "Yangi buyurtma",
+      name: payload.name,
+      contact: payload.phone,
       phone: payload.phone,
       address: payload.address || "—",
-      comment: payload.comment || "—",
+      message: payload.comment || "—",
       order_items: itemsText,
       order_total: `${total.toLocaleString("uz-UZ")} so'm`,
-      message: `Yangi buyurtma:\n${itemsText}\n\nJami: ${total.toLocaleString("uz-UZ")} so'm`,
       reply_to: payload.phone,
     };
 
