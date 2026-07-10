@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 <link rel="stylesheet" href="css/style.css">
 <style>
   .hero{position:relative; overflow:hidden; background:linear-gradient(180deg, var(--sky) 0%, #F6FBFF 60%, var(--white) 100%); padding:70px 6vw 0;}
@@ -119,7 +121,14 @@
       <div class="blob blob1"></div>
       <div class="droplet" style="width:60px;height:60px; top:20px; left:10px;"></div>
       <div class="droplet" style="width:30px;height:30px; bottom:60px; right:30px; background:var(--mint); opacity:0.6;"></div>
-      <img src="images/velira-ocean.jpg" alt="Velira Ocean">
+      <div class="owl-carousel product-carousel" id="heroCarousel">
+        <div class="item"><img src="images/velira-ocean.jpg" alt="Velira Ocean"></div>
+        <div class="item"><img src="images/ocean-2.jpg" alt="Velira Ocean"></div>
+        <div class="item"><img src="images/ocean-3.jpg" alt="Velira Ocean"></div>
+        <div class="item"><img src="images/ocean-4.jpg" alt="Velira Ocean"></div>
+        <div class="item"><img src="images/ocean-5.jpg" alt="Velira Ocean"></div>
+        <div class="item"><img src="images/ocean-6.jpg" alt="Velira Ocean"></div>
+      </div>
     </div>
   </div>
   <svg class="wave" viewBox="0 0 1440 100" preserveAspectRatio="none" style="height:70px;">
@@ -203,7 +212,16 @@
   </div>
   <div class="product-grid">
     <div class="pcard ocean">
-      <div class="pimg"><img src="images/velira-ocean.jpg" alt="Velira Ocean"></div>
+      <div class="pimg">
+        <div class="owl-carousel product-carousel" id="oceanCarousel">
+          <div class="item"><img src="images/velira-ocean.jpg" alt="Velira Ocean"></div>
+          <div class="item"><img src="images/ocean-2.jpg" alt="Velira Ocean"></div>
+          <div class="item"><img src="images/ocean-3.jpg" alt="Velira Ocean"></div>
+          <div class="item"><img src="images/ocean-4.jpg" alt="Velira Ocean"></div>
+          <div class="item"><img src="images/ocean-5.jpg" alt="Velira Ocean"></div>
+          <div class="item"><img src="images/ocean-6.jpg" alt="Velira Ocean"></div>
+        </div>
+      </div>
       <div class="pcard-body">
         <div class="tag-row"><span class="tag" data-i="tagOc">Ocean</span><span class="tag" data-i="tag60">60 stirka</span></div>
         <h3>Velira Ocean</h3>
@@ -215,7 +233,16 @@
       </div>
     </div>
     <div class="pcard lav">
-      <div class="pimg"><img src="images/velira-lavender.jpg" alt="Velira Wild Lavender"></div>
+      <div class="pimg">
+        <div class="owl-carousel product-carousel" id="lavenderCarousel">
+          <div class="item"><img src="images/velira-lavender.jpg" alt="Velira Wild Lavender"></div>
+          <div class="item"><img src="images/lavender-2.jpg" alt="Velira Wild Lavender"></div>
+          <div class="item"><img src="images/lavender-3.jpg" alt="Velira Wild Lavender"></div>
+          <div class="item"><img src="images/lavender-4.jpg" alt="Velira Wild Lavender"></div>
+          <div class="item"><img src="images/lavender-5.jpg" alt="Velira Wild Lavender"></div>
+          <div class="item"><img src="images/lavender-6.jpg" alt="Velira Wild Lavender"></div>
+        </div>
+      </div>
       <div class="pcard-body">
         <div class="tag-row"><span class="tag" data-i="tagLav">Wild Lavender</span><span class="tag" data-i="tag100">100 stirka</span></div>
         <h3>Velira Wild Lavender</h3>
@@ -284,6 +311,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>emailjs.init({ publicKey: "0HBwuawTW_FpYC_cB" });</script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="js/components.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/api.js"></script>
@@ -291,6 +320,21 @@
 <script>
   renderHeader('home');
   renderFooter();
+
+  $(function(){
+    $('.product-carousel').owlCarousel({
+      items: 1,
+      loop: true,
+      dots: true,
+      nav: true,
+      autoplay: true,
+      autoplayTimeout: 5000,
+      autoplayHoverPause: true,
+      smartSpeed: 600,
+      mouseDrag: true,
+      touchDrag: true
+    });
+  });
 </script>
 </body>
 </html>

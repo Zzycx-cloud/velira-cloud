@@ -1,6 +1,6 @@
 # Velira.uz — Fullstack sayt
 
-Kir yuvish listlari (Velira) uchun to'liq sayt: Bosh sahifa, Mahsulotlar (katalog + savat + buyurtma), Biz haqimizda, Aloqa. UZ/RU tillari, buyurtma va murojaatlar avtomatik ravishda Telegram'ga yuboriladi.
+Kir yuvish varaqlari (Velira) uchun to'liq sayt: Bosh sahifa, Mahsulotlar (katalog + savat + buyurtma), Biz haqimizda, Aloqa. UZ/RU tillari, buyurtma va murojaatlar avtomatik ravishda Telegram'ga yuboriladi.
 
 ## Tuzilma
 

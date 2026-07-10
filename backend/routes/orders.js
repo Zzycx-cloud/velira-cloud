@@ -57,7 +57,7 @@ router.post("/", async (req, res) => {
   appendJSON("orders.json", order);
 
   const itemsText = lineItems
-    .map((li) => `• ${li.name} × ${li.qty} — ${(li.price * li.qty).toLocaleString("uz-UZ")} so'm`)
+    .map((li) => `• ${li.name} × ${li.qty} — ${(li.price * li.qty).toLocaleString("ru-RU")} so'm`)
     .join("\n");
 
   const message =
@@ -67,7 +67,7 @@ router.post("/", async (req, res) => {
     (order.address ? `📍 ${order.address}\n` : "") +
     (order.comment ? `💬 ${order.comment}\n` : "") +
     `\n${itemsText}\n\n` +
-    `💰 <b>Jami: ${order.total.toLocaleString("uz-UZ")} so'm</b>`;
+    `💰 <b>Jami: ${order.total.toLocaleString("ru-RU")} so'm</b>`;
 
   await sendTelegramMessage(message);
 

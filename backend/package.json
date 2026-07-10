@@ -1,7 +1,7 @@
 {
   "name": "velira-backend",
   "version": "1.0.0",
-  "description": "Velira.uz — kir yuvish listlari onlayn do'koni uchun backend (Express + Telegram integratsiyasi)",
+  "description": "Velira.uz — kir yuvish varaqlari onlayn do'koni uchun backend (Express + Telegram integratsiyasi)",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

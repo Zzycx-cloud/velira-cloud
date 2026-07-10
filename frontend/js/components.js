@@ -20,7 +20,7 @@ function renderHeader(activePage) {
   el.innerHTML = `
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html" class="logo"><span class="dot"></span>Velira</a>
+      <a href="index.html" class="logo"><img src="images/logo.png" alt="Mächtiger Mond"></a>
       <nav class="main-nav">
         <a href="index.html" data-i="navHome" class="${activePage === "home" ? "active" : ""}">Bosh sahifa</a>
         <a href="shop.html" data-i="navShop" class="${activePage === "shop" ? "active" : ""}">Mahsulotlar</a>
@@ -48,7 +48,7 @@ function renderFooter() {
   <footer class="site-footer">
     <div class="footer-grid">
       <div>
-        <a class="logo" href="index.html"><span class="dot" style="background:var(--mint)"></span>Velira</a>
+        <a class="logo" href="index.html"><img src="images/logo.png" alt="Mächtiger Mond"></a>
         <p data-i="footAbout">Konsentrlangan kir yuvish listlari zamonaviy uy uchun. O'zbekistonda rasmiy distribyutor.</p>
         <div class="social-row">
           <a class="social-btn" href="${SOCIAL_LINKS.telegram}" target="_blank" rel="noopener" aria-label="Telegram">${ICON_TELEGRAM}</a>

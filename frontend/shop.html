@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 <link rel="stylesheet" href="css/style.css">
 <style>
   .shop-grid{max-width:1280px; margin:0 auto; padding:70px 6vw 120px; display:grid; grid-template-columns:1fr 1fr; gap:28px;}
@@ -90,6 +92,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>emailjs.init({ publicKey: "0HBwuawTW_FpYC_cB" });</script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="js/components.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/api.js"></script>
@@ -103,9 +107,14 @@
     const lang = localStorage.getItem('velira_lang') || 'ru';
     try{
       const products = await ensureProducts();
-      grid.innerHTML = products.map(p => `
+      grid.innerHTML = products.map(p => {
+        const imgs = (p.images && p.images.length ? p.images : [p.image]);
+        const slides = imgs.map(src => `<div class="item"><img src="${src}" alt="${p.name[lang]}"></div>`).join('');
+        return `
         <div class="pcard">
-          <div class="pimg"><img src="${p.image}" alt="${p.name[lang]}"></div>
+          <div class="pimg">
+            <div class="owl-carousel product-carousel" data-carousel-id="${p.id}">${slides}</div>
+          </div>
           <div class="pcard-body">
             <div class="tag-row">
               <span class="tag">${p.scent}</span>
@@ -119,9 +128,28 @@
             </div>
           </div>
         </div>
-      `).join('');
+      `;
+      }).join('');
+      initShopCarousels();
     }catch(err){
       grid.innerHTML = `<p style="color:var(--grey)">Mahsulotlarni yuklab bo'lmadi. Backend ishga tushirilganini tekshiring.</p>`;
+    }
+  }
+
+  function initShopCarousels(){
+    if(window.jQuery && jQuery.fn.owlCarousel){
+      jQuery('.product-carousel').owlCarousel({
+        items: 1,
+        loop: true,
+        dots: true,
+        nav: true,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
+        smartSpeed: 600,
+        mouseDrag: true,
+        touchDrag: true
+      });
     }
   }
 
