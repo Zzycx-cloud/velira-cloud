@@ -47,7 +47,10 @@ function getCartCount() {
 
 function updateCartCount() {
   const el = document.getElementById("cartCount");
-  if (el) el.textContent = getCartCount();
+  if (!el) return;
+  const count = getCartCount();
+  el.textContent = count;
+  el.setAttribute("data-empty", count === 0 ? "true" : "false");
 }
 
 function currentLangText(key) {
@@ -235,6 +238,22 @@ async function submitOrder(e) {
   }
 }
 
+function openMobileNav() {
+  document.getElementById("burgerBtn")?.classList.add("open");
+  document.getElementById("mobileNavPanel")?.classList.add("open");
+  document.getElementById("mobileNavOverlay")?.classList.add("open");
+}
+function closeMobileNav() {
+  document.getElementById("burgerBtn")?.classList.remove("open");
+  document.getElementById("mobileNavPanel")?.classList.remove("open");
+  document.getElementById("mobileNavOverlay")?.classList.remove("open");
+}
+function toggleMobileNav() {
+  const isOpen = document.getElementById("mobileNavPanel")?.classList.contains("open");
+  if (isOpen) closeMobileNav();
+  else openMobileNav();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
   document.getElementById("openCartBtn")?.addEventListener("click", openCart);
@@ -243,6 +262,10 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("checkoutBtn")?.addEventListener("click", openCheckout);
   document.getElementById("closeCheckoutBtn")?.addEventListener("click", closeCheckout);
   document.getElementById("checkoutForm")?.addEventListener("submit", submitOrder);
+
+  document.getElementById("burgerBtn")?.addEventListener("click", toggleMobileNav);
+  document.getElementById("mobileNavOverlay")?.addEventListener("click", closeMobileNav);
+  document.querySelectorAll("#mobileNavPanel a").forEach((a) => a.addEventListener("click", closeMobileNav));
 });
 
 document.addEventListener("langchange", () => renderCartDrawer());

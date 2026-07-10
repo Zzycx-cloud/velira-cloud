@@ -32,13 +32,23 @@ function renderHeader(activePage) {
           <button data-lang="uz">UZ</button>
           <button data-lang="ru">RU</button>
         </div>
-        <button class="cart-btn" id="openCartBtn">
-          <i class="fa-solid fa-cart-shopping"></i> <span data-i="cartBtn">Savat</span>
-          <span class="cart-count" id="cartCount">0</span>
+        <button class="burger-btn" id="burgerBtn" aria-label="Menyu">
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
-  </header>`;
+  </header>
+  <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+  <nav class="mobile-nav-panel" id="mobileNavPanel">
+    <a href="index.html" data-i="navHome" class="${activePage === "home" ? "active" : ""}">Bosh sahifa</a>
+    <a href="shop.html" data-i="navShop" class="${activePage === "shop" ? "active" : ""}">Mahsulotlar</a>
+    <a href="about.html" data-i="navAbout" class="${activePage === "about" ? "active" : ""}">Biz haqimizda</a>
+    <a href="contact.html" data-i="navContact" class="${activePage === "contact" ? "active" : ""}">Aloqa</a>
+  </nav>
+  <button class="cart-fab" id="openCartBtn" aria-label="Savat">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span class="cart-count" id="cartCount">0</span>
+  </button>`;
 }
 
 function renderFooter() {
