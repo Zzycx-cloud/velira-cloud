@@ -26,7 +26,7 @@
   .stat-row{display:flex; gap:36px; margin-top:48px; flex-wrap:wrap;}
   .stat b{font-family:'Space Grotesk',sans-serif; font-size:26px; display:block;}
   .stat span{font-size:12px; color:var(--grey);}
-  .hero-visual{position:relative; display:flex; justify-content:center; align-items:center; height:520px;}
+  .hero-visual{position:relative; display:flex; justify-content:center; align-items:center; padding:20px 0 40px;}
   .hero-visual img{max-width:380px; width:100%; border-radius:18px; box-shadow:0 40px 80px -20px rgba(11,37,69,0.25); position:relative; z-index:3;}
   .blob{position:absolute; border-radius:50%; filter:blur(2px);}
   .blob1{width:340px;height:340px; background:radial-gradient(circle at 30% 30%, #DFF3FF, #BFEFE6); top:0; right:-20px; opacity:0.9;}
@@ -76,10 +76,13 @@
   .cta-banner .btn-solid{background:var(--white); color:var(--navy);}
   .cta-banner .btn-solid:hover{background:var(--mint);}
   @media(max-width:900px){
-    .hero-inner{grid-template-columns:1fr;} .hero-visual{height:380px;}
+    .hero-inner{grid-template-columns:1fr;}
     .feature-cards{grid-template-columns:repeat(2,1fr);}
     .product-grid{grid-template-columns:1fr;}
     .steps-grid{grid-template-columns:1fr;}
+  }
+  @media(max-width:480px){
+    .hero-visual .product-carousel{max-width:280px !important;}
   }
 </style>
 </head>
