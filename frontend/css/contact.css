@@ -1,0 +1,190 @@
+/* contact.html — page-specific styles */
+
+.contact-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 70px 6vw 40px;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 50px;
+}
+
+.contact-info {
+  background: var(--sky);
+  border-radius: 26px;
+  padding: 44px 36px;
+}
+
+.contact-info h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.contact-info p {
+  font-size: 14px;
+  color: var(--grey);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(11, 37, 69, 0.08);
+  transition: transform .35s cubic-bezier(.22, 1, .36, 1), padding-left .35s cubic-bezier(.22, 1, .36, 1);
+}
+
+.info-row:first-of-type {
+  border-top: none;
+}
+
+.info-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--azure-deep);
+  transition: background .35s ease, color .35s ease, transform .35s cubic-bezier(.22, 1, .36, 1);
+}
+
+.info-row:hover {
+  transform: translateX(4px);
+}
+
+.info-row:hover .info-icon {
+  background: var(--azure);
+  color: var(--white);
+  transform: scale(1.06);
+}
+
+.info-row .label {
+  font-size: 11.5px;
+  color: var(--grey);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.info-row .value {
+  font-size: 14.5px;
+  font-weight: 600;
+  transition: color .3s ease;
+}
+
+.info-row a {
+  color: var(--navy);
+}
+
+.info-row:hover .value {
+  color: var(--azure-deep);
+}
+
+.contact-form-card {
+  border: 1px solid rgba(11, 37, 69, 0.08);
+  border-radius: 26px;
+  padding: 44px 36px;
+  transition: border-color .35s ease, box-shadow .35s ease;
+}
+
+.contact-form-card:hover {
+  border-color: rgba(11, 37, 69, 0.16);
+  box-shadow: 0 24px 50px -30px rgba(11, 37, 69, 0.25);
+}
+
+.contact-form-card h3 {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.contact-form-card>p {
+  font-size: 13.5px;
+  color: var(--grey);
+  margin-bottom: 26px;
+}
+
+/* Brend / mahsulot ma'lumotlari bloki */
+.brand-strip {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 6vw 100px;
+}
+
+.brand-card {
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 26px;
+  padding: 40px 36px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.brand-card .brand-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--mint);
+  margin-bottom: 6px;
+}
+
+.brand-col h4 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.brand-col .price-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  padding: 8px 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: background .3s ease, padding-left .3s cubic-bezier(.22, 1, .36, 1), transform .3s cubic-bezier(.22, 1, .36, 1);
+}
+
+.brand-col .price-line:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateX(2px);
+}
+
+.brand-col .price-line:last-child {
+  border-bottom: none;
+}
+
+.brand-col .price-line b {
+  font-family: 'Space Grotesk', sans-serif;
+  transition: color .3s ease;
+}
+
+.brand-col .price-line:hover b {
+  color: var(--mint);
+}
+
+.brand-col p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 8px;
+}
+
+@media(max-width:900px) {
+  .contact-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-card {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+}

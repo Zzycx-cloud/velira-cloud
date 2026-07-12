@@ -1,0 +1,108 @@
+/* shop.html — page-specific styles */
+
+.shop-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 70px 6vw 120px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.pcard {
+    border: 1px solid rgba(11, 37, 69, 0.08);
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow .5s ease, transform .5s cubic-bezier(.22, 1, .36, 1);
+}
+
+.pcard:hover {
+    box-shadow: 0 30px 60px -20px rgba(11, 37, 69, 0.18);
+    transform: translateY(-3px);
+}
+
+.pcard .pimg {
+    background: var(--sky);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 36px;
+}
+
+.pcard img {
+    max-width: 280px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.pcard-body {
+    padding: 28px 30px 30px;
+}
+
+.tag-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.tag {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: var(--sky);
+    color: var(--azure-deep);
+}
+
+.pcard-body h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.pcard-body p {
+    font-size: 14px;
+    color: var(--grey);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.buy-btn {
+    background: var(--navy);
+    color: var(--white);
+    padding: 12px 22px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    transition: background .35s ease;
+}
+
+.buy-btn:hover {
+    background: var(--azure);
+}
+
+.buy-btn.added {
+    background: #1B8A5A;
+}
+
+@media(max-width:900px) {
+    .shop-grid {
+        grid-template-columns: 1fr;
+    }
+}

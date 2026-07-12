@@ -19,7 +19,7 @@ function addToCart(id, qty = 1) {
   cart[id] = (cart[id] || 0) + qty;
   setCart(cart);
   showToast(currentLangText("addedToast"));
-  renderCartDrawer();
+  openCart();
 }
 
 function removeFromCart(id) {
@@ -55,7 +55,7 @@ function updateCartCount() {
 
 function currentLangText(key) {
   const lang = localStorage.getItem("velira_lang") || "ru";
-  return (window.DICT && DICT[lang] && DICT[lang][key]) || "";
+  return (typeof DICT !== "undefined" && DICT[lang] && DICT[lang][key]) || "";
 }
 
 function showToast(msg) {
@@ -117,7 +117,7 @@ async function renderCartDrawer() {
           </div>
           <a class="remove-btn" onclick="removeFromCart('${id}')">✕</a>
         </div>
-        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14px;">
+        <div class="line-total">
           ${lineTotal.toLocaleString("uz-UZ")}
         </div>
       </div>`;
@@ -156,7 +156,8 @@ async function submitOrder(e) {
   const form = e.target;
   const statusEl = document.getElementById("orderStatus");
   const submitBtn = form.querySelector("button[type=submit]");
-  const originalBtnText = submitBtn.textContent;
+  const labelEl = submitBtn.querySelector(".btn-label");
+  const originalBtnText = labelEl.textContent;
   const lang = localStorage.getItem("velira_lang") || "ru";
 
   const cart = getCart();
@@ -165,6 +166,7 @@ async function submitOrder(e) {
   const payload = {
     name: form.name.value,
     phone: form.phone.value,
+    email: form.email.value,
     address: form.address.value,
     comment: form.comment.value,
     items,
@@ -172,6 +174,7 @@ async function submitOrder(e) {
   };
 
   submitBtn.disabled = true;
+  submitBtn.classList.add("loading");
   statusEl.textContent = "";
   statusEl.className = "form-status";
 
@@ -193,12 +196,13 @@ async function submitOrder(e) {
       type: "Yangi buyurtma",
       name: payload.name,
       contact: payload.phone,
+      email: payload.email,
       phone: payload.phone,
       address: payload.address || "—",
       message: payload.comment || "—",
       order_items: itemsText,
       order_total: `${total.toLocaleString("uz-UZ")} so'm`,
-      reply_to: payload.phone,
+      reply_to: payload.email || payload.phone,
     };
 
     await emailjs.send("service_rdyv22j", "template_48si1yf", templateParams);
@@ -210,26 +214,28 @@ async function submitOrder(e) {
       // backend may be offline; email delivery is what matters here
     }
 
+    submitBtn.classList.remove("loading");
     statusEl.textContent = currentLangText("orderSuccess");
     statusEl.classList.add("success");
-    submitBtn.textContent = `${currentLangText("sentBtn")} ✅`;
+    labelEl.textContent = `${currentLangText("sentBtn")} ✅`;
     submitBtn.classList.add("btn-sent");
     setCart({});
     form.reset();
     setTimeout(() => {
       closeCheckout();
       statusEl.textContent = "";
-      submitBtn.textContent = originalBtnText;
+      labelEl.textContent = originalBtnText;
       submitBtn.classList.remove("btn-sent");
     }, 2200);
   } catch (err) {
     console.error("EmailJS error:", err);
     const detail = (err && (err.text || err.message)) ? ` (${err.text || err.message})` : "";
+    submitBtn.classList.remove("loading");
     statusEl.textContent = currentLangText("orderError") + detail;
-    submitBtn.textContent = `${currentLangText("errorBtn")} ❌`;
+    labelEl.textContent = `${currentLangText("errorBtn")} ❌`;
     submitBtn.classList.add("btn-error");
     setTimeout(() => {
-      submitBtn.textContent = originalBtnText;
+      labelEl.textContent = originalBtnText;
       submitBtn.classList.remove("btn-error");
     }, 2600);
     statusEl.classList.add("error");
@@ -242,11 +248,13 @@ function openMobileNav() {
   document.getElementById("burgerBtn")?.classList.add("open");
   document.getElementById("mobileNavPanel")?.classList.add("open");
   document.getElementById("mobileNavOverlay")?.classList.add("open");
+  document.body.classList.add("nav-open");
 }
 function closeMobileNav() {
   document.getElementById("burgerBtn")?.classList.remove("open");
   document.getElementById("mobileNavPanel")?.classList.remove("open");
   document.getElementById("mobileNavOverlay")?.classList.remove("open");
+  document.body.classList.remove("nav-open");
 }
 function toggleMobileNav() {
   const isOpen = document.getElementById("mobileNavPanel")?.classList.contains("open");
@@ -265,7 +273,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("burgerBtn")?.addEventListener("click", toggleMobileNav);
   document.getElementById("mobileNavOverlay")?.addEventListener("click", closeMobileNav);
+  document.getElementById("mobileNavCloseBtn")?.addEventListener("click", closeMobileNav);
   document.querySelectorAll("#mobileNavPanel a").forEach((a) => a.addEventListener("click", closeMobileNav));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMobileNav(); });
 });
 
 document.addEventListener("langchange", () => renderCartDrawer());

@@ -3,7 +3,7 @@
     "id": "ocean-60",
     "scent": "Ocean",
     "loads": 60,
-    "price": 89000,
+    "price": 59000,
     "currency": "UZS",
     "image": "images/velira-ocean.jpg",
     "images": [
@@ -24,7 +24,7 @@
     "id": "wild-lavender-100",
     "scent": "Wild Lavender",
     "loads": 100,
-    "price": 129000,
+    "price": 79000,
     "currency": "UZS",
     "image": "images/velira-lavender.jpg",
     "images": [

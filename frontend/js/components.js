@@ -7,8 +7,8 @@
 const SOCIAL_LINKS = {
   telegram: "https://t.me/velira_uz",
   instagram: "https://instagram.com/velira.uz",
-  phone: "+998900000000",
-  email: "hello@velira.uz",
+  phone: "+998950170800",
+  email: "ssaid701@icloud.com",
 };
 
 const ICON_TELEGRAM = '<i class="fa-brands fa-telegram"></i>';
@@ -40,6 +40,7 @@ function renderHeader(activePage) {
   </header>
   <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
   <nav class="mobile-nav-panel" id="mobileNavPanel">
+    <button class="mobile-nav-close" id="mobileNavCloseBtn" aria-label="Yopish"><i class="fa-solid fa-xmark"></i></button>
     <a href="index.html" data-i="navHome" class="${activePage === "home" ? "active" : ""}">Bosh sahifa</a>
     <a href="shop.html" data-i="navShop" class="${activePage === "shop" ? "active" : ""}">Mahsulotlar</a>
     <a href="about.html" data-i="navAbout" class="${activePage === "about" ? "active" : ""}">Biz haqimizda</a>
