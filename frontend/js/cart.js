@@ -95,7 +95,14 @@ async function renderCartDrawer() {
     return;
   }
 
-  const products = await ensureProducts();
+  let products;
+  try {
+    products = await ensureProducts();
+  } catch (err) {
+    itemsEl.innerHTML = `<p class="grid-error-msg">Mahsulotlarni yuklab bo'lmadi.</p>`;
+    if (footEl) footEl.style.display = "none";
+    return;
+  }
   let total = 0;
   let html = "";
 
