@@ -44,3 +44,19 @@
   .value-card{padding:28px 22px;}
   .team-photo{width:96px; height:96px;}
 }
+
+@media(max-width:768px){.mission .owl-stage-outer,.mission .owl-stage{overflow:hidden}.mission .item{display:flex;justify-content:center}.mission .item img{width:100%;height:auto;max-width:340px;object-fit:contain}}
+
+
+@media (max-width:768px){
+.product-showcase,.carousel,.owl-carousel,.swiper,.showcase-slider{width:100%!important;max-width:100%!important;overflow:hidden!important;}
+.owl-stage{display:flex;}
+.owl-item,.swiper-slide{width:100%!important;}
+.owl-item img,.swiper-slide img,.product-showcase img{
+width:100%!important;
+height:auto!important;
+object-fit:contain!important;
+}
+.owl-nav,.swiper-button-next,.swiper-button-prev{display:none!important;}
+body{overflow-x:hidden!important;}
+}
