@@ -69,7 +69,6 @@
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr;}
   .feature-cards{grid-template-columns:repeat(2,1fr);}
-  .product-grid{grid-template-columns:1fr;}
   .steps-grid{grid-template-columns:1fr;}
 }
 
@@ -77,4 +76,17 @@
   .hero{padding:50px 6vw 0;}
   .cta-banner{flex-direction:column; align-items:flex-start; padding:40px 7vw;}
   .stat-row{gap:22px;}
+
+  .product-grid{gap:12px;}
+  .pcard .pimg{padding:16px;}
+  .pcard-body{padding:16px 14px 18px;}
+  .tag-row{gap:5px; margin-bottom:9px; flex-wrap:wrap;}
+  .tag{font-size:9px; padding:4px 7px;}
+  .pcard-body h3{font-size:16px; margin-bottom:5px;}
+  .pcard-body p{font-size:11.5px; margin-bottom:12px; line-height:1.45;}
+  .price-row{flex-direction:column; align-items:flex-start; gap:10px;}
+  .price{font-size:15px;}
+  .buy-btn{padding:9px 16px; font-size:11.5px; width:100%;}
+  .product-carousel .owl-nav button.owl-prev,
+  .product-carousel .owl-nav button.owl-next{width:26px; height:26px; font-size:12px;}
 }

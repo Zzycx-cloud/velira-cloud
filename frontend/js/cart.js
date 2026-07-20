@@ -19,7 +19,6 @@ function addToCart(id, qty = 1) {
   cart[id] = (cart[id] || 0) + qty;
   setCart(cart);
   showToast(currentLangText("addedToast"));
-  openCart();
 }
 
 function removeFromCart(id) {

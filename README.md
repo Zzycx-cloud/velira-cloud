@@ -74,7 +74,13 @@ Brauzerda oching: `http://localhost:3000`
    - **Shaxsiy chatga** kelishini istasangiz: botga Telegram'da `/start` deb yozing, keyin **@userinfobot** ga yozib o'z `chat_id`ingizni bilib oling.
    - **Guruh/kanalga** kelishini istasangiz: botni o'sha guruhga admin qilib qo'shing, so'ng guruh `chat_id`sini oling (odatda manfiy son, masalan `-1001234567890`).
 4. Olingan raqamni `.env` dagi `TELEGRAM_CHAT_ID` ga yozing.
-5. Serverni qayta ishga tushiring — endi har bir buyurtma va "Aloqa" formasidagi xabar shu Telegram chatga tushadi.
+   - **Bir nechta joyga** (masalan, o'zingizning shaxsiy chatingiz VA guruhga) yubormoqchi bo'lsangiz, ikkala `chat_id`ni vergul bilan ajratib yozing:
+     ```
+     TELEGRAM_CHAT_ID=6600336418,-1003851734252
+     ```
+5. Serverni qayta ishga tushiring — endi har bir buyurtma va "Aloqa" formasidagi xabar shu Telegram chat(lar)ga tushadi.
+
+> **Muhim:** shaxsiy chatga (masalan `6600336418`) xabar borishi uchun o'sha odam avval botga hech bo'lmaganda bitta marta `/start` deb yozgan bo'lishi shart — aks holda Telegram "bot can't initiate conversation with a user" xatosini qaytaradi va xabar bormaydi.
 
 Agar `.env` to'ldirilmagan bo'lsa, sayt baribir ishlayveradi (xatolik bermaydi), faqat konsolga ogohlantirish chiqadi va Telegram xabari yuborilmaydi.
 
