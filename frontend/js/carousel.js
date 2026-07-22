@@ -1,8 +1,4 @@
-// Lightweight product image carousel (Owl-Carousel style):
-// - auto-advances every 5 seconds
-// - user can switch manually via arrows or dots
-// - autoplay pauses on hover and resumes after manual interaction
-// Usage: initCarousels() scans the page for [data-carousel] elements built by buildCarousel()
+
 
 function carouselSlideHTML(images, alt) {
   return images
@@ -19,7 +15,7 @@ function carouselDotsHTML(images) {
     .join("");
 }
 
-// Returns the HTML markup for a carousel; drop this inside any container.
+
 function buildCarousel(images, alt, extraClass) {
   if (!images || images.length === 0) return "";
   if (images.length === 1) {
@@ -88,7 +84,7 @@ function initCarousels(root) {
       });
     });
 
-    // pause on hover so people can look, resume once the mouse leaves
+
     car.addEventListener("mouseenter", stopAutoplay);
     car.addEventListener("mouseleave", startAutoplay);
 

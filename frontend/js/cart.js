@@ -185,7 +185,7 @@ async function submitOrder(e) {
   statusEl.className = "form-status";
 
   try {
-    // Build a human-readable order summary for the email
+
     const products = await ensureProducts();
     let total = 0;
     const itemsText = items
@@ -213,11 +213,11 @@ async function submitOrder(e) {
 
     await emailjs.send("service_rdyv22j", "template_48si1yf", templateParams);
 
-    // Best-effort: also try to save to backend / notify Telegram, but don't block success on it
+
     try {
       await apiCreateOrder(payload);
     } catch (backendErr) {
-      // backend may be offline; email delivery is what matters here
+
     }
 
     submitBtn.classList.remove("loading");

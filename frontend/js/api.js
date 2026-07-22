@@ -1,9 +1,6 @@
 const API_BASE = "/api";
 
-// Fallback catalog — used only if the backend (/api/products) isn't reachable,
-// e.g. when previewing the frontend with a static server (Live Server, etc.)
-// instead of running `node server.js`. Keep this in sync with
-// backend/data/products.json.
+
 const FALLBACK_PRODUCTS = [
   {
     id: "ocean-60",
@@ -55,8 +52,7 @@ async function apiGetProducts() {
     if (!res.ok) throw new Error("Mahsulotlarni yuklab bo'lmadi");
     return await res.json();
   } catch (err) {
-    // Backend unreachable (offline, static preview, etc.) — use local data
-    // so the shop/cart keep working instead of showing blank content.
+
     console.warn("apiGetProducts: backend topilmadi, zaxira ma'lumotlar ishlatilmoqda.", err);
     return FALLBACK_PRODUCTS;
   }

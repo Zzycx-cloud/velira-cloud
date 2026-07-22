@@ -1,8 +1,3 @@
-// Injects a consistent header (with nav, language toggle, cart button) and
-// footer (with Telegram/Instagram links) into every page.
-// Usage: <div id="site-header"></div> ... <div id="site-footer"></div>
-// then include this script — it fills them in and highlights the active nav link.
-// Icons are loaded from Font Awesome (see <link> in each page's <head>).
 
 const SOCIAL_LINKS = {
   telegram: "https://t.me/velira_uz",
