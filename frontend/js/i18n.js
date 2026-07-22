@@ -74,6 +74,16 @@ const DICT = {
     contactFormSub: "Odatda bir necha soat ichida javob beramiz.",
     contactTelegramLabel: "Telegram", contactInstagramLabel: "Instagram", contactPhoneLabel: "Telefon", contactEmailLabel: "Email",
     contactAddressLabel: "Manzil", contactAddressValue: "Toshkent shahri, O'zbekiston",
+
+    // HOME product cards (static, non-shop-grid)
+    prodOceanDesc: "Yangi va tiniq aroma, sovuq suvda ham samarali, kundalik foydalanish uchun.",
+    prodLavDesc: "Dala lavandasining nafis hidi, uy uchun uzoq muddatli yangilik.",
+
+    // CONTACT brand strip
+    brandLabel: "Brend", brandTagline: "Konsentrlangan kir yuvish listlari brendi.",
+    pricesLabel: "Narxlar", price100Label: "100 talik", price60Label: "60 talik", somWord: "so'm",
+    originLabel: "Kelib chiqishi", originMakeLabel: "Ishlab chiqarish", originMakeVal: "Xitoy",
+    originRawLabel: "Xom-ashyo", originRawVal: "Italiya",
   },
   ru: {
     navHome: "Главная", navShop: "Продукты", navAbout: "О нас", navContact: "Контакты", cartBtn: "Корзина",
@@ -150,6 +160,16 @@ const DICT = {
     contactFormSub: "Обычно отвечаем в течение нескольких часов.",
     contactTelegramLabel: "Telegram", contactInstagramLabel: "Instagram", contactPhoneLabel: "Телефон", contactEmailLabel: "Email",
     contactAddressLabel: "Адрес", contactAddressValue: "г. Ташкент, Узбекистан",
+
+    // HOME product cards (static, non-shop-grid)
+    prodOceanDesc: "Свежий и чистый аромат, эффективен даже в холодной воде, для ежедневного использования.",
+    prodLavDesc: "Нежный аромат полевой лаванды, долгая свежесть для дома.",
+
+    // CONTACT brand strip
+    brandLabel: "Бренд", brandTagline: "Бренд концентрированных листов для стирки.",
+    pricesLabel: "Цены", price100Label: "На 100 стирок", price60Label: "На 60 стирок", somWord: "сум",
+    originLabel: "Происхождение", originMakeLabel: "Производство", originMakeVal: "Китай",
+    originRawLabel: "Сырьё", originRawVal: "Италия",
   }
 };
 
